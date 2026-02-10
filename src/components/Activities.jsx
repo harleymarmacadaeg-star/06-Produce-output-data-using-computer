@@ -7,7 +7,8 @@ import {
   Share2, 
   CheckCircle, 
   Monitor,
-  AlertTriangle
+  AlertTriangle,
+  CloudUpload // Added icon for Google Drive
 } from 'lucide-react';
 
 export default function Activities() {
@@ -16,7 +17,8 @@ export default function Activities() {
     excel: false,
     word: false,
     print: false,
-    transfer: false
+    transfer: false,
+    drive: false // Added new state for Google Drive task
   });
 
   const toggleComplete = (task) => {
@@ -185,7 +187,7 @@ export default function Activities() {
       <section className={`bg-white rounded-xl shadow-md border-l-8 ${completed.transfer ? 'border-purple-500' : 'border-purple-600'} overflow-hidden transition-all`}>
         <div className="p-6 bg-purple-50 border-b border-purple-100 flex justify-between items-center">
           <h3 className="text-xl font-bold text-purple-800 flex items-center gap-2">
-            <Share2 /> Task 4: File Transfer & Management
+            <Share2 /> Task 4: USB Transfer & Safety
           </h3>
           <button 
             onClick={() => toggleComplete('transfer')}
@@ -233,6 +235,59 @@ export default function Activities() {
                    <li>Wait for the "Safe to Remove" notification before pulling the device.</li>
                  </ul>
                </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* TASK 5: GOOGLE DRIVE (NEW ADDITION) */}
+      <section className={`bg-white rounded-xl shadow-md border-l-8 ${completed.drive ? 'border-amber-500' : 'border-amber-600'} overflow-hidden transition-all`}>
+        <div className="p-6 bg-amber-50 border-b border-amber-100 flex justify-between items-center">
+          <h3 className="text-xl font-bold text-amber-800 flex items-center gap-2">
+            <CloudUpload /> Task 5: Cloud Storage (Google Drive)
+          </h3>
+          <button 
+            onClick={() => toggleComplete('drive')}
+            className={`px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2 transition ${completed.drive ? 'bg-amber-600 text-white' : 'bg-white text-amber-700 border border-amber-300'}`}
+          >
+            {completed.drive ? <><CheckCircle size={16}/> Completed</> : "Mark as Done"}
+          </button>
+        </div>
+
+        <div className="p-6 grid md:grid-cols-2 gap-8">
+          <div>
+            <h4 className="font-bold text-gray-700 mb-2">Instructions:</h4>
+            <ol className="list-decimal pl-5 space-y-2 text-sm text-gray-600">
+              <li>Open a Web Browser (Chrome/Edge).</li>
+              <li>Log in to your <strong>Google Account</strong> (Gmail).</li>
+              <li>Navigate to <a href="https://drive.google.com" target="_blank" rel="noreferrer" className="text-blue-600 underline">drive.google.com</a>.</li>
+              <li><strong>Create Folder:</strong>
+                <ul className="list-disc pl-5 mt-1">
+                  <li>Click <strong>+ New</strong> &gt; <strong>Folder</strong>.</li>
+                  <li>Name it: <code>LO4_Backups_LastName</code>.</li>
+                  <li>Double-click to open the new folder.</li>
+                </ul>
+              </li>
+              <li><strong>Upload Files:</strong>
+                <ul className="list-disc pl-5 mt-1">
+                  <li>Click <strong>+ New</strong> &gt; <strong>File Upload</strong>.</li>
+                  <li>Navigate to Documents &gt; <code>LO4_Outputs</code>.</li>
+                  <li>Select your Excel and Word files and click Open.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          
+          <div className="bg-amber-50 p-4 rounded-lg flex flex-col justify-center text-sm text-amber-900 h-full">
+            <h5 className="font-bold mb-2 flex items-center gap-2">
+              <CloudUpload size={18}/> Why Cloud Storage?
+            </h5>
+            <p className="mb-4">
+              Saving to Google Drive ensures your data is accessible from any computer and serves as a backup if your USB drive is lost or corrupted.
+            </p>
+            <div className="bg-white p-3 rounded border border-amber-200">
+              <strong>Verification:</strong><br/>
+              Ensure you see "Upload Complete" in the bottom right corner of your browser window before closing the tab.
             </div>
           </div>
         </div>
