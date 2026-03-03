@@ -8,7 +8,7 @@ import {
   CheckCircle, 
   Monitor,
   AlertTriangle,
-  CloudUpload // Added icon for Google Drive
+  UploadCloud // Added icon for Google Drive
 } from 'lucide-react';
 
 export default function Activities() {
