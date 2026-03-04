@@ -244,7 +244,7 @@ export default function Activities() {
       <section className={`bg-white rounded-xl shadow-md border-l-8 ${completed.drive ? 'border-amber-500' : 'border-amber-600'} overflow-hidden transition-all`}>
         <div className="p-6 bg-amber-50 border-b border-amber-100 flex justify-between items-center">
           <h3 className="text-xl font-bold text-amber-800 flex items-center gap-2">
-            <CloudUpload /> Task 5: Cloud Storage (Google Drive)
+            <UploadCloud /> Task 5: Cloud Storage (Google Drive)
           </h3>
           <button 
             onClick={() => toggleComplete('drive')}
@@ -280,7 +280,7 @@ export default function Activities() {
           
           <div className="bg-amber-50 p-4 rounded-lg flex flex-col justify-center text-sm text-amber-900 h-full">
             <h5 className="font-bold mb-2 flex items-center gap-2">
-              <CloudUpload size={18}/> Why Cloud Storage?
+              <UploadCloud size={18}/> Why Cloud Storage?
             </h5>
             <p className="mb-4">
               Saving to Google Drive ensures your data is accessible from any computer and serves as a backup if your USB drive is lost or corrupted.
